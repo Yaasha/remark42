@@ -189,7 +189,7 @@ export function Auth() {
     <>
       {errorMessage && <div className={clsx('auth-error', styles.error)}>{errorMessage}</div>}
       <Button className="auth-submit" type="submit" disabled={isLoading}>
-        {isLoading ? <Spinner /> : intl.formatMessage(messages.submit)}
+        {isLoading ? <Spinner /> : intl.formatMessage(messages.signin)}
       </Button>
     </>
   );
