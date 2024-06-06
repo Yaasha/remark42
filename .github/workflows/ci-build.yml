@@ -58,7 +58,7 @@ jobs:
       - name: build and deploy master image to ghcr.io and dockerhub
         if: ${{ github.ref == 'refs/heads/master' }}
         env:
-          GITHUB_PACKAGE_TOKEN: ${{ GITHUB_TOKEN }}
+          GITHUB_PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
           USERNAME: ${{ github.actor }}
           GITHUB_SHA: ${{ github.sha}}
@@ -77,7 +77,7 @@ jobs:
       - name: deploy tagged (latest) to ghcr.io and dockerhub
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         env:
-          GITHUB_PACKAGE_TOKEN: ${{ GITHUB_TOKEN }}
+          GITHUB_PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
           USERNAME: ${{ github.actor }}
           GITHUB_SHA: ${{ github.sha}}
